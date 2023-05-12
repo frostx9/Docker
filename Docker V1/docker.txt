@@ -1,0 +1,19 @@
+[//] Docker :-
+
+Scenario :- Supose Developer A working a projct. His machine Config are : node 18 , monogdb , Ubuntu. Now Developer B join the team and started working on the same projct, but he have 
+node 16 , postgres , windows 10. So Developer B when try run the projct he get error. Developer B also work on other project . For those projct he need node 16. So he cant upgrade to node 18
+
+              Problem Trying to Solve - 1. Everry Developer in the team must have the same configuration
+                                        2. You need to replicate your dev env to the production sever to ensure
+                                            smooth operation
+
+Solution :- Docker
+
+Docker works on concept of  ( Containerization )
+
+So it is a mahine under a machine which have some conatiner
+
+[//] To Check Docker Version - Type docker -v in terminal
+
+[//] ** First Comand To Create a Container - docker run -it ubuntu 
+                                            ** It create a ubuntu iamge , which is run a conatiner. It like a OS

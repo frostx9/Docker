@@ -1,0 +1,91 @@
+[//] Build And Test Own Custom Image :-
+
+1. First Wrtite All Logics in any programing language
+
+2. Create A Docker File with any extention -> Dockerfile. It should have to root folder . See Docker-Tut Folder
+
+3. To Create an applcation , u need an base iamge. On particualr os we wan to run this applcation
+
+    FROM node  -> This file denote which type of iamge we nedd to build my custom Image
+
+    COPY index.js /home/app/script.js  -> This command denote copy index.js to /home/app/script.js
+
+4 . To Start Build iamge -> docker build -t mycustomimg .
+
+** .  -> it means current directory
+
+5. docker run  -it mycustomimg bash -> it start a container with the help of custom image
+
+6. To Run a command automatically ..  CMD ["node", "/home/app/script.js"]
+
+
+[//] Port Mapping :-
+
+1. Create A normal Express App with package.json
+
+2. Configure Dokcerfile --
+
+FROM node
+
+COPY index.js /home/app/index.js            --> Copy indx.js
+COPY package.json /home/app/package.json    --> Copy  package.json
+
+WORKDIR /home/app                           --> Set The Working directory . All the comamnd  will run in this directory
+
+RUN npm install                             --> Install Dependices form package.json
+
+CMD ["node", "index"]                       --> When Image start index.js will run
+
+
+
+
+3. Build The Image --
+
+docker build -t node-demo .                 --> node-demo will be the iamge name
+
+Now when server started in conainer , supose it run on port 3001 , the app will not run on our port 3001, because that port
+is conainerize in this particualr image
+
+** If want to expose the port from the image 
+
+* Run The Coaniner with Below comamnd :-
+
+docker run -it -p 8000:3001 node-app
+
+-p -> Port maping
+
+Explain -- Hey Docker Run a conainer form node-app iamge interactive mode and make sure do a port 
+mapping that inside the docker , it is port 3001 (Right side port number) to my machine port 8000 ( Left Side Port Number)
+
+
+[//] Autoamtic Port Mapping :-
+
+To Remeber Port for Expose is hectic, so insted of rembering we add in Dockerfile configuration
+
+........
+
+RUN npm install   
+
+EXPOSE 3000-3999           --> Expose all port between range 3000 and 3999
+
+CMD ["node", "index"] 
+
+
+* Run The Coaniner with Below comamnd :-
+
+docker run -it -P node-app 
+
+It will assign a port by autoamtically , and it is shown under Port Tab in Docker ui
+
+
+[//] Pushing My Custom Image to Docker Hub  :-
+
+1. Create Docker Account
+
+2. Log in from terminal
+
+3. Create A new Repo in Docker Web App
+
+4. Tage the iamge with repo name, so it wont conflit with other iamge -> docker tag < iamge name> <repo name> . It will create a new iamge in host machine
+
+5. Now push that iamge. docker push < iamge name with tag >

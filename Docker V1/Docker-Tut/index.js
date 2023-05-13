@@ -1,0 +1,1 @@
+console.log("HEy There, Im from js file from Docker 🐳 ");

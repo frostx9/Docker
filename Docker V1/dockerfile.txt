@@ -1,0 +1,21 @@
+Build And Test Own Custom Image :-
+
+1. First Wrtite All Logics in any programing language
+
+2. Create A Docker File with any extention -> Dockerfile. It should have to root folder . See Docker-Tut Folder
+
+3. To Create an applcation , u need an base iamge. On particualr os we wan to run this applcation
+
+    FROM node  -> This file denote which type of iamge we nedd to build my custom Image
+
+    COPY index.js /home/app/script.js  -> This command denote copy index.js to /home/app/script.js
+
+4 . To Start Build iamge -> docker build -t mycustomimg .
+
+** .  -> it means current directory
+
+5. docker run  -it mycustomimg bash -> it start a container with the help of custom image
+
+6. To Run a command automatically ..  CMD ["node", "/home/app/script.js"]
+
+

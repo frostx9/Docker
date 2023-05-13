@@ -36,6 +36,11 @@ So it is a mahine under a machine which have some conatiner
 
 5. docker image prune -> Deleting Un Used Images
 
+6. docker rmi <image> - Deleting A image by his name
+
+
+
+
 ** For conatiner
 
 1. docker container ls --all -> To Show all install dcoker container installed in host machine
@@ -51,3 +56,5 @@ So it is a mahine under a machine which have some conatiner
 6. docker exec < docker name > < comand name >  -> To Executea a comand in conainer
 
 7. docker start < dcoker name> -> To Start A Container
+
+8. docker stop < dcoker name> -> To Stop A Container

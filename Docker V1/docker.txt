@@ -15,5 +15,39 @@ So it is a mahine under a machine which have some conatiner
 
 [//] To Check Docker Version - Type docker -v in terminal
 
-[//] ** First Comand To Create a Container - docker run -it ubuntu 
-                                            ** It create a ubuntu iamge , which is run a conatiner. It like a OS
+[//] ** First Comand To Create a Container - ** docker run -it ubuntu 
+                                            *** It create a ubuntu iamge , which is run a conatiner. It like a OS
+
+
+
+
+[//] Docker CLI - 
+
+** For Image
+
+1. docker iamges -> It shows list of the iamges that currently install on host machine
+
+2. docker image pull ubuntu ->  It download ubuntu iamge from docker store and install in our machine
+
+3. docker image rm <image id> -> Delete A Image by image _id 
+   docker image rm <image id> -f  -> To Force Fully Delete
+
+4. docker inspect <image id> -> Inspecting / Finding Meta Data A Image by image _id '
+
+5. docker image prune -> Deleting Un Used Images
+
+** For conatiner
+
+1. docker container ls --all -> To Show all install dcoker container installed in host machine
+
+2. docker container ls - > To Show all install dcoker container currently running
+
+3. docker run --name < name > ubuntu -> Create A ubuntu conatiner with desired name
+
+4. docker container prune -> delete all stoped container
+
+5. docker run -it --name < name > ubuntu - To Start A new conainer wirh current terminal attached
+
+6. docker exec < docker name > < comand name >  -> To Executea a comand in conainer
+
+7. docker start < dcoker name> -> To Start A Container

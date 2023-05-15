@@ -1,0 +1,64 @@
+
+** [/] docker netwok ls  --> To list all netwok device
+
+** [/] docker netwok inspect bridge --> To get More Information about Bridge Network
+
+** [/] docker run -itd --name spiderman --rm busybox  -- Create A Busybox Conatiner with name spiderman
+
+[//] Bridge Netwok --
+                   A host machine have a netwok interface cared. This interface card connect with router. Thus how a host machine have internet access 
+
+Now when we install docker engine in our host machine docker engine create a new network interface, this interface with connect with router. When we create a conainer
+those container connect with docker netwok interface with bridge netwok by default
+
+This is a completely isolated from our host machine. We can not ping host machine to a conatiner by default
+
+** Bridge Netwok is two type
+
+          1. Default Bridge
+          2. User Defined Bridge Network --> 
+                                            To Create Own network , run --> [/] docker network create milkyway
+
+
+milkyway network will be create type of Bridge Netwok, it means a new netwok interface will be created which name is milkyway
+    ** To Specfiy netwok when create a conainer  --> [/] docker run -itd  --network milkyway --name thor --rm busybox
+  
+** milkyway network interface will be isolated form other network interface
+
+** We can also connect other container from differnt newtwok interface in to user defined bridge network  --> [/] docker newtwok connect milkyway ironamn
+                                                                                                  ( milkyway is a user defined newtwok and ironamn is a conainer)
+
+
+
+
+** A container can also connect with multipale newtwok interface
+
+
+
+
+[//] Host Network -- 
+
+      To connect a docker container with a host machine
+
+      --> [/] docker run -itd --name containerA --netwok host busybox
+
+** There are no port mapping
+** To Check its working or not --> [/] docker newtwok inspect host
+
+we can find container list object below
+
+
+[//] Overlay Newtwork -- 
+                Overlay Newtwork connect multipale Docker daemons together and enabled swarm service to communicate each other
+
+
+[//] ipvlan Netwok --
+                IPvlan newtwok gives users total control over both ipv4 and ipv6 addressing
+
+
+[//] macvlan Netwok --
+                Macvlan networks allow you to assign a MAC address to a conainer, making it appear as a physical device. Create A conatiner to machine
+
+
+[//] none Netwok --
+                Diabled All Netwroking --> [/] docker run -it --newtwok none busybox
